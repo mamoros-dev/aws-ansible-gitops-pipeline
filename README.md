@@ -78,3 +78,5 @@ aws-ansible-gitops-pipeline/
     - Ansible >= v2.15.0
     - Colección de AWS para Ansible instalada: `ansible-galaxy collection install amazon.aws`
     - Librerías de Python requeridas: `pip install boto3 botocore`
+
+## 
