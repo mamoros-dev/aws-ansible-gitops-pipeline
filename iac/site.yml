@@ -1,0 +1,12 @@
+---
+- name: Aprovisionamiento de Servidores Web en Producción
+  # 'tag_Role_webservers' es el grupo dinámico creado por aws_ec2.yml 
+  # a partir de la etiqueta 'Role = webservers' definida en Terraform.
+  hosts: tag_webservers
+  
+  # Elevamos privilegios a root (sudo) para instalar software
+  become: true
+
+  # Indicamos la lista de roles que debe ejecutar Ansible en estas máquinas
+  roles:
+    - nginx_webserver

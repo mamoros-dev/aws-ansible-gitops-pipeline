@@ -1,0 +1,24 @@
+---
+- name: Actualizar la lista de paquetes (APT)
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Instalar el servidor Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Desplegar el archivo HTML procesando la plantilla Jinja2
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    owner: www-data
+    group: www-data
+    mode: '0644'
+
+- name: Asegurar que Nginx esté iniciado y habilitado
+  service:
+    name: nginx
+    state: started
+    enabled: yes

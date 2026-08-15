@@ -1,0 +1,50 @@
+name: "Pipeline IaC: Terraform + Ansible"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'iac/**'
+  workflow_dispatch:
+
+jobs:
+  deploy_iac:
+    name: "Despliegue de Infraestructura y Configuración"
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./iac
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar credenciales de AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Configurar Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Instalar Ansible y dependencias de Python
+        run: |
+          python -m pip install --upgrade pip
+          pip install ansible boto3 botocore
+          ansible-galaxy collection install amazon.aws
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+
+      - name: Crear archivo .vault_password
+        run: echo "${{ secrets.ANSIBLE_VAULT_PASSWORD }}" > .vault_password
+
+      - name: Ejecutar Ansible Playbook
+        run: ansible-playbook site.yml

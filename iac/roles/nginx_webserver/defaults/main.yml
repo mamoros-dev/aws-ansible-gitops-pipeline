@@ -1,0 +1,6 @@
+---
+# defaults file for nginx_server
+# Variables por defecto del rol nginx_webserver
+http_port: 80
+site_title: "Mi Servidor DevOps Modular"
+environment_name: "Entorno de Pruebas (Dev)"
