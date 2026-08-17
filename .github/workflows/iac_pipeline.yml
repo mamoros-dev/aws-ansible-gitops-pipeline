@@ -28,6 +28,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      # --- AQUÍ ESTÁ EL PASO QUE FALTA ---
+      - name: Generar clave SSH temporal para AWS
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keygen -t rsa -b 4096 -f ~/.ssh/aws_ansible_key -N ""
+
       - name: Configurar Terraform
         uses: hashicorp/setup-terraform@v3
 
