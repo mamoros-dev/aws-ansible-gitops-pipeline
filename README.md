@@ -68,9 +68,9 @@ aws-ansible-gitops-pipeline/
 ├── docs/
 │   └── images/                  # Capturas de prueba de ejecución
 │       ├── pipeline_completed.png
-        ├── pipeline_destroy.png
-        ├── pipeline_run.png
-        ├── pipeline.png
+|       ├── pipeline_destroy.png
+|       ├── pipeline_run.png
+|       ├── pipeline.png
 │       ├── secrets.png
 │       ├── webv1.png
 │       └── webv2.png
