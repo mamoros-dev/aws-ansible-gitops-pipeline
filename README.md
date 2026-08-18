@@ -67,10 +67,13 @@ aws-ansible-gitops-pipeline/
 ├── README.md                    # Documentación del proyecto
 ├── docs/
 │   └── images/                  # Capturas de prueba de ejecución
-│       ├── pipeline-success.png
-│       ├── ansible-recap.png
-│       ├── website-v2.png
-│       └── destroy-pipeline.png
+│       ├── pipeline_completed.png
+        ├── pipeline_destroy.png
+        ├── pipeline_run.png
+        ├── pipeline.png
+│       ├── secrets.png
+│       ├── webv1.png
+│       └── webv2.png
 └── iac/                         # Carpeta raíz de la infraestructura
     ├── ansible.cfg              # Configuración de Ansible (host_key_checking = False)
     ├── aws_ec2.yml              # Configuración del Inventario Dinámico AWS
