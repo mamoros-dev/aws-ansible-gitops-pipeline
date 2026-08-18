@@ -79,6 +79,13 @@ resource "aws_instance" "servidor_web" {
     Environment = "Dev"
     Role        = "webservers" # <-- Tag principal de filtrado
   }
+
+# Forzamos que la EC2 se recree si cambia la clave SSH para no quedarnos bloqueados
+  lifecycle {
+    replace_triggered_by = [
+      aws_key_pair.mi_clave_ssh
+    ]
+  }
 }
 
 output "ip_publica_servidor" {
