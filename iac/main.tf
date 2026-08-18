@@ -5,6 +5,15 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+  # El backend DEBE ir dentro del bloque terraform
+  backend "s3" {
+    bucket         = "miguel-terraform-state-proyecto2"
+    key            = "ansible-gitops/terraform.tfstate"
+    region         = "eu-west-1"
+    dynamodb_table = "terraform-locks-proyecto2"
+    encrypt        = true
+  }
 }
 
 provider "aws" {
