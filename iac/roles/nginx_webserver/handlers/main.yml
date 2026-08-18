@@ -1,3 +1,11 @@
-#SPDX-License-Identifier: MIT-0
 ---
-# handlers file for nginx_server
+- name: Validar y Recargar Nginx
+  block:
+    - name: Verificar sintaxis de configuración de Nginx
+      command: nginx -t
+      changed_when: false
+
+    - name: Recargar Nginx sin caída de servicio (Graceful Reload)
+      service:
+        name: nginx
+        state: reloaded
