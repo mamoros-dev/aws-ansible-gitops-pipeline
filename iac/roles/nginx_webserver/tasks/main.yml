@@ -9,13 +9,15 @@
     name: nginx
     state: present
 
-- name: Desplegar el archivo HTML procesando la plantilla Jinja2
+- name: Desplegar la plantilla HTML procesando Jinja2
   template:
     src: index.html.j2
     dest: /var/www/html/index.html
     owner: www-data
     group: www-data
     mode: '0644'
+  # Notifica al handler solo si la plantilla cambia de versión
+  notify: Validar y Recargar Nginx
 
 - name: Asegurar que Nginx esté iniciado y habilitado
   service:
