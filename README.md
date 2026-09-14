@@ -17,7 +17,7 @@
 - [Architecture Decisions](#architecture-decisions)
 - [CI/CD Pipeline](#cicd-pipeline)
 - [Infrastructure Verification](#infrastructure-verification)
-- [How to install and run](#how-to-install-and-run)
+- [How to install and run the project](#how-to-install-and-run-the-project)
 - [How to use the project](#how-to-use-the-project)`
 - [Stack](#stack)
 - [Status](#status)
@@ -64,7 +64,7 @@
 ![pipeline destroy](./docs/images/pipeline_destroy.png)  
 
 
-## How to install and run
+## How to install and run the project
 
 ### Option A: Automated Deployment via GitHub Actions (GitOps)
 + The repository is configured to trigger automated infrastructure and configuration pipelines on code changes.
@@ -149,9 +149,9 @@ ansible-playbook -i ./iac/aws_ec2.yml ./iac/site.yml --vault-password-file .vaul
 ## Stack
 + Terraform 1.15 · AWS  · GitHub Actions · OIDC · GitHub Environments
 
-## Estado
+## Status
 + Infrastructure and process completed and verified from start to finish
 + Infrastructure is removed after validation to avoid unnecessary credit consumption. 
 
-## Autor
+## Author
 + Miguel — [GitHub](https://github.com/mamoros-dev) · [LinkedIn](https://www.linkedin.com/in/miguel-amoros-moret/)
