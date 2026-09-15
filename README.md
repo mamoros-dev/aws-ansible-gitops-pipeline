@@ -5,7 +5,7 @@
 [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?logo=githubactions)](https://github.com/features/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-🇪🇸 [Spanish version and more info](README-es.md)
+🇪🇸 [Spanish version and more info](./docs/es/README-es.md)
 
 ![Diagrama](./docs/images/diagrama.png)  
 
