@@ -1,13 +1,16 @@
+# Plugin for connecting to AWS EC2
 # El plugin para la conexion con AWS EC2
 plugin: aws_ec2
 regions:
-  - us-east-1 # Ajusta a tu región si utilizas otra diferente
+  - us-east-1 # Ajusta a tu región si utilizas otra diferente / Adjust to your region if you use a different one
 
+# Create dynamic groups in Ansible based on the value of the "Role" Tag
 # Crea automáticamente grupos en Ansible basados en el valor del Tag "Role"
 keyed_groups:
   - key: tags.Role
     prefix: tag
 
+# Configuration for network and user for automatic SSH connection
 # Configuración de red y usuario para la conexión SSH automática
 hostnames:
   - ip-address

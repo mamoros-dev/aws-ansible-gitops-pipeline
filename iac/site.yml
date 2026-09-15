@@ -1,12 +1,15 @@
+# --- Ansible Playbook for Provisioning Web Servers in Production
+# --- Este playbook utiliza el inventario dinámico de Ansible para aprovisionar servidores web en producción.
 ---
 - name: Aprovisionamiento de Servidores Web en Producción
-  # 'tag_Role_webservers' es el grupo dinámico creado por aws_ec2.yml 
+  # 'tag_Role_webservers' es el grupo dinámico creado por aws_ec2.yml  / is the dynamic group created by aws_ec2.yml
   # a partir de la etiqueta 'Role = webservers' definida en Terraform.
   hosts: tag_webservers
-  
+  # Elevate privileges to root (sudo) to install software
   # Elevamos privilegios a root (sudo) para instalar software
   become: true
 
   # Indicamos la lista de roles que debe ejecutar Ansible en estas máquinas
+  # Indicate the list of roles that Ansible should execute on these machines
   roles:
     - nginx_webserver

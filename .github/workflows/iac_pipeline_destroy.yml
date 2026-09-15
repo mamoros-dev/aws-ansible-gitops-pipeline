@@ -1,3 +1,5 @@
+# --- This workflow is triggered manually and is used to destroy the infrastructure created by the IaC pipeline. It sets up AWS credentials, configures SSH keys, initializes Terraform, and runs the Terraform destroy command to remove all resources. ---
+# --- Este flujo de trabajo se activa manualmente y se utiliza para destruir la infraestructura creada por el pipeline de IaC. Configura las credenciales de AWS, configura claves SSH, inicializa
 name: "Pipeline IaC: Destroy Infrastructure"
 
 on:

@@ -118,7 +118,7 @@ aws-ansible-gitops-pipeline/
     terraform apply -auto-approve
 
     # 3. Provisionar con Ansible usando Inventario Dinámico
-    ansible-playbook -i ./iac/aws_ec2.yml ./iac/site.yml --vault-password-file .vault_password
+    ansible-playbook -i ./iac/aws_ec2.yml ./iac/site.yml --vault-password-file ./iac/.vault_password
 
     # 4. Destruir recursos al finalizar
     terraform destroy -auto-approve

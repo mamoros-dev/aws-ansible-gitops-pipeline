@@ -1,3 +1,5 @@
+# --- This workflow is triggered on push to the main branch and when changes are made to the 'iac' directory. It sets up AWS credentials, configures SSH keys, initializes Terraform, applies the infrastructure changes, and runs Ansible playbooks for configuration management. ---
+# --- Este flujo de trabajo se activa al hacer push a la rama principal y cuando se realizan cambios en el directorio 'iac'. Configura las credenciales de AWS, configura claves SSH, inicializa Terraform, aplica los cambios de infraestructura y ejecuta playbooks de Ansible para la gestión de configuración. ---
 name: "Pipeline IaC: Terraform + Ansible"
 
 on:
@@ -7,7 +9,8 @@ on:
     paths:
       - 'iac/**'
   workflow_dispatch:
-
+# --- Jobs for deploying and destroying infrastructure using Terraform and Ansible. ---
+# --- Trabajos para desplegar y destruir infraestructura utilizando Terraform y Ansible. ---
 jobs:
   deploy_iac:
     name: "Despliegue de Infraestructura y Configuración"
@@ -16,7 +19,8 @@ jobs:
     defaults:
       run:
         working-directory: ./iac
-
+    # --- Steps for checking out code, configuring AWS credentials, setting up SSH keys, initializing Terraform, applying infrastructure changes, and running Ansible playbooks. ---
+    # --- Pasos para hacer checkout del código, configurar credenciales de AWS, configurar claves SSH, inicializar Terraform, aplicar cambios de infraestructura y ejecutar playbooks de Ansible. ---
     steps:
       - name: Checkout del código
         uses: actions/checkout@v4
