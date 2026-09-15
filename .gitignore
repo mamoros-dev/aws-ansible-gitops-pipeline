@@ -29,4 +29,4 @@ id_rsa*
 
 # Python
 __pycache__/
-*.pyc
+*.pyciac/.vault_password
