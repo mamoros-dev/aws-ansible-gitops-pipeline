@@ -101,17 +101,22 @@ terraform apply -auto-approve
 
 2. Execute Configuration Management with Ansible:
 ```bash
-# Create the local decryption file
-echo "tu_password_vault" > .vault_password
+# Ensure your private SSH key is added or accessible by Ansible.
+
+# Create your local Vault password file (do NOT commit this file):
+echo "your_vault_password" > iac/.vault_password
+
+# Ensure iac/roles/nginx_webserver/vars/main.yml contains the required variables or encrypted secrets (site_title, db_user, db_password, api_key_servicio).
 
 # Verify that the AWS dynamic inventory plugin discovers the target instances
+cd ../
 ansible-inventory -i ./iac/aws_ec2.yml --graph
 
 # Run the playbook to provision application dependencies and configurations
 ansible-playbook -i ./iac/aws_ec2.yml ./iac/site.yml
 
 # Provisioning with Ansible Using Dynamic Inventory
-ansible-playbook -i ./iac/aws_ec2.yml ./iac/site.yml --vault-password-file .vault_password
+ansible-playbook -i ./iac/aws_ec2.yml ./iac/site.yml --vault-password-file iac/.vault_password
 ```
 
 ## How to Use the Project
